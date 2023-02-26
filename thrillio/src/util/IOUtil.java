@@ -54,7 +54,7 @@ public class IOUtil {
 
 	public static void write(String webpage, long id) {
 		System.out.println("WRITE");
-		try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:/thrillio/pages/" + String.valueOf(id) + ".html"), "UTF-8"))) {
+		try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("C:/Users/DELL/git/repository/thrillio" + String.valueOf(id) + ".html"), "UTF-8"))) {
 			writer.write(webpage);
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
