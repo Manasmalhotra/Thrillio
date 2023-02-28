@@ -47,7 +47,7 @@ public class DataStore {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio?allowPublicKeyRetrieval=true&useSSL=false", "root", "root");
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio?allowPublicKeyRetrieval=true&useSSL=false", "root", "Manas@65");
 				Statement stmt = conn.createStatement();) {
 			loadUsers(stmt);   
 			loadWebLinks(stmt); 
@@ -69,8 +69,8 @@ public class DataStore {
     		long id = rs.getLong("id");
     		String email=rs.getString("email");
     		String password=rs.getString("password");
-    		String firstName=rs.getString("firstName");
-    		String lastName=rs.getString("lastName");
+    		String firstName=rs.getString("first_name");
+    		String lastName=rs.getString("last_name");
     		int gender_id=rs.getInt("gender_id");
     		Gender gender = Gender.values()[gender_id];
     		int user_id=rs.getInt("user_type_id");

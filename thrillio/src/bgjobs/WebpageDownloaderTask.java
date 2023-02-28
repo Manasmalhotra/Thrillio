@@ -70,6 +70,7 @@ public class WebpageDownloaderTask implements Runnable{
 		    }
 		    else {
 		    	System.out.println("No new Web Links todownload!");
+		    	break;
 		    }
 		    //Wait
 			try {

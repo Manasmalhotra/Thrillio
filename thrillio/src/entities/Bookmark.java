@@ -7,7 +7,7 @@ abstract public class Bookmark {
 	private long id;
 	private String title;
 	private String profileUrl;
-	private String kidFriendlyStatus=KidFriendlyStatus.UNKNOWN;
+	private KidFriendlyStatus kidFriendlyStatus=KidFriendlyStatus.UNKNOWN;
     private User kidFriendlyMarkedBy;
     private User sharedBy;
     
@@ -42,12 +42,12 @@ abstract public class Bookmark {
 		return "Bookmark [id=" + id + ", title=" + title + ", profileUrl=" + profileUrl + "]";
 	}
 
-	public String getKidFriendlyStatus() {
+	public KidFriendlyStatus getKidFriendlyStatus() {
 		return kidFriendlyStatus;
 	}
 
-	public void setKidFriendlyStatus(String kidFriendlyStatus) {
-		this.kidFriendlyStatus = kidFriendlyStatus;
+	public void setKidFriendlyStatus(KidFriendlyStatus kidFriendlyStatus2) {
+		this.kidFriendlyStatus = kidFriendlyStatus2;
 	}
 
 	public User getKidFriendlyMarkedBy() {

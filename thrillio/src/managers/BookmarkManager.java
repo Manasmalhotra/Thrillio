@@ -5,6 +5,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import constants.BookGenre;
+import constants.KidFriendlyStatus;
 import constants.MovieGenre;
 import dao.BookmarkDao;
 import entities.Book;
@@ -77,7 +78,7 @@ public class BookmarkManager {
 		userBookmark.setUser(user);
 		userBookmark.setBookmark(bookmark);
 		
-		if (bookmark instanceof WebLink) {
+		/*if (bookmark instanceof WebLink) {
 			try {				
 				String url = ((WebLink)bookmark).getUrl();
 				System.out.println("THIS IS URL "+url);
@@ -96,15 +97,16 @@ public class BookmarkManager {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		}*/
 		
 		dao.saveUserBookmark(userBookmark);
 
 	}
 
-	public void setKidFriendlyStatus(User user, String kidFriendlyStatus, Bookmark bookmark) {
+	public void setKidFriendlyStatus(User user, KidFriendlyStatus kidFriendlyStatus, Bookmark bookmark) {
 		bookmark.setKidFriendlyStatus(kidFriendlyStatus);
 		bookmark.setKidFriendlyMarkedBy(user);
+		dao.updateKidFriendlyStatus(bookmark);
 		System.out.println(
 				"Kid Friendly Status: " + kidFriendlyStatus + " Marked by: " + user.getEmail() + ", " + bookmark);
 	}
@@ -119,6 +121,6 @@ public class BookmarkManager {
 		else if(bookmark instanceof WebLink) {
 			System.out.println(((WebLink) bookmark).getItemData());
 		}
-		
+		dao.sharedByInfo(bookmark);
 	}
 }

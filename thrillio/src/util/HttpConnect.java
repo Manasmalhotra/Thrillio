@@ -6,12 +6,17 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.URLDecoder;
 
 public class HttpConnect {	
 	
 	public static String download(String sourceUrl) throws MalformedURLException, URISyntaxException {
 		System.out.println("Downloading: " + sourceUrl);
-		URL url = new URI(sourceUrl).toURL();		
+		URL url = new URL(sourceUrl);
+	    String nullFragment = null;
+	    URI uri = new URI(url.getProtocol(), url.getHost(), url.getPath(), url.getQuery(), nullFragment);
+		//URL url = new URI(sourceUrl).toURL();		
+	    url = uri.toURL();	 
 		
 		try {
 			HttpURLConnection con = (HttpURLConnection)url.openConnection();
